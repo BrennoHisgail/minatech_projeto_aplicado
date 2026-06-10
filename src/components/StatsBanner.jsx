@@ -39,25 +39,20 @@ export default function StatsBanner() {
   return (
     <section className="stats-banner" ref={sectionRef}>
       <div className="container">
-        <div className="row align-items-center justify-content-center g-4">
-
-          <div className="col-md-8 text-white">
+        <div className="row align-items-center g-4">
+          <div className="col-md-7 text-white">
             <p className="stats-prefix">mais de</p>
             <span className="stats-number">{count}+</span>
             <p className="stats-suffix mt-2">
               meninas impactadas na Grande Florianópolis!
             </p>
           </div>
-
-          <div className="col-md-auto">
-            <div className="badge-gratuito">
-              <span className="pct">100%</span>
-              <span>GRATUITO</span>
-            </div>
-          </div>
-
         </div>
       </div>
+
+      <p className="stats-gratuito-text">
+        100%<br />GRATUITO
+      </p>
     </section>
   )
 }
