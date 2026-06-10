@@ -1,0 +1,111 @@
+import Navbar          from '../components/Navbar'
+import EventCard        from '../components/EventCard'
+import ScheduleBox      from '../components/ScheduleBox'
+import PastEventCard    from '../components/PastEventCard'
+import TestimonialCard  from '../components/TestimonialCard'
+import Footer           from '../components/Footer'
+
+/* Dados dos eventos futuros */
+const EVENTS = [
+  { date: 'Sábado, 14 de junho de 2025',  badge: 'HOJE',  time: '09h00 — 12h00', title: 'Oficina de Lógica de Programação', location: 'UFSC — Sala 101, Bloco A', isOnline: false },
+  { date: 'Sábado, 28 de junho de 2025',  badge: 'ZOOM',  time: '10h00 — 12h00', title: 'Talk — Mulheres na Engenharia',    location: 'Online via Zoom',             isOnline: true  },
+  { date: 'Sábado, 12 de julho de 2025',  badge: null,    time: '09h00 — 13h00', title: 'Visita Técnica — Lab de Robótica', location: 'SENAI Florianópolis',         isOnline: false },
+  { date: 'Sábado, 26 de julho de 2025',  badge: null,    time: '14h00 — 17h00', title: 'Workshop de Empreendedorismo',     location: 'Instituto de Inovação Corali', isOnline: false },
+]
+
+/* Agenda detalhada do sábado em destaque */
+const SCHEDULE = [
+  { time: '08h30', title: 'Credenciamento',              desc: 'Recepção e entrega de materiais'     },
+  { time: '09h00', title: 'Abertura oficial',            desc: 'Boas-vindas pela coordenação'        },
+  { time: '09h30', title: 'Oficina: Lógica de Programação', desc: 'Instruída por mentoras da área de TI' },
+  { time: '11h00', title: 'Pausa para lanche',           desc: ''                                    },
+  { time: '11h20', title: 'Talk: Trajetórias em STEAM',  desc: 'Depoimentos de profissionais'        },
+  { time: '12h00', title: 'Encerramento',                desc: ''                                    },
+]
+
+/* Eventos passados */
+const PAST = [
+  {
+    imgSeed: 'event1',
+    text: 'Nossa imersão no Laboratório de Química da UFSC, conduzida pelas professoras Bomnina e Gisele, foi uma vitrine sobre a versatilidade da Engenharia Química. Além de explorarmos as áreas de atuação, vivenciamos na prática o tratamento de efluentes.',
+  },
+  {
+    imgSeed: 'event2',
+    text: 'Com a participação especial do Time Curie, do Senai, e da professora Daniela Szruk, graduandas e graduadas da UFSC compartilharam experiências mostrando caminhos em trajetória e conhecimentos técnicos avançados nas áreas de engenharia.',
+  },
+]
+
+/* Depoimentos */
+const TESTIMONIALS = [
+  {
+    imgSeed: 'vitoria',
+    name: 'Vitória da Rosa',
+    text: 'Minha jornada no Minatech, em 2022 e 2023, foi uma grande fonte de inspiração e crescimento. O programa me ajudou a descobrir caminhos na Engenharia e Tecnologia, mostrando que elas têm capacidade e que essas profissões não são só para meninas.',
+  },
+  {
+    imgSeed: 'maria',
+    name: 'Maria Eduarde',
+    text: 'Participar do projeto entre 2020 e 2022 transformou minha visão de futuro e fortaleceu minha confiança na programação. Hoje, cursando Ciência da Computação, reconheço o quanto essa experiência contribuiu para minha base acadêmica e profissional.',
+  },
+]
+
+export default function Programacao() {
+  return (
+    <>
+      <Navbar />
+
+      {/* Programação atual */}
+      <section className="prog-section">
+        <div className="container">
+          <h1>Programação</h1>
+          <p className="prog-sub">Data de todos os eventos</p>
+          <div className="divider-pink" />
+
+          <div className="row g-4 mt-2">
+            {/* Lista de eventos */}
+            <div className="col-lg-7">
+              {EVENTS.map((ev, i) => (
+                <EventCard key={i} {...ev} />
+              ))}
+            </div>
+
+            {/* Agenda em destaque */}
+            <div className="col-lg-5">
+              <ScheduleBox title="Sábado — 14/06" items={SCHEDULE} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Programações passadas */}
+      <section className="past-events">
+        <div className="container">
+          <h2>Programações Passadas</h2>
+          <div className="divider-pink" />
+          <div className="row g-4 mt-2">
+            {PAST.map((ev, i) => (
+              <div className="col-md-6" key={i}>
+                <PastEventCard {...ev} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Depoimentos */}
+      <section className="testimonials">
+        <div className="container">
+          <h2>Depoimentos de ex-alunas</h2>
+          <div className="divider-pink" />
+          <div className="mt-4">
+            {TESTIMONIALS.map((t, i) => (
+              <TestimonialCard key={i} {...t} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  )
+}
