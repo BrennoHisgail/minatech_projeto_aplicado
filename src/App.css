@@ -37,15 +37,19 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 .navbar-minatech {
   background: var(--footer-bg);
-  padding: 14px 0;
+  padding: 4px 0;
   box-shadow: 0 2px 20px rgba(0,0,0,.25);
 }
 
-.logo-mina { font-weight: 400; font-size: 22px; color: rgba(255,255,255,.85); }
-.logo-tech { font-weight: 700; font-size: 22px; color: var(--primary);        }
+.logo-mina { font-weight: 400; font-size: 52px; color: rgba(255,255,255,.85); }
+.logo-tech { font-weight: 700; font-size: 52px; color: var(--primary);        }
+
+.navbar-minatech .navbar-collapse {
+  padding-right: 0;
+}
 
 .navbar-minatech .nav-link {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: rgba(255,255,255,.8) !important;
   padding: 6px 14px !important;
@@ -441,7 +445,7 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    COMPONENTE — FOOTER
    ============================================================ */
-.footer-minatech { background: var(--footer-bg); color: var(--white); padding: 44px 0; }
+.footer-minatech { background: var(--footer-bg); color: var(--white); padding: 12px 0; }
 
 .footer-item {
   display: flex; flex-direction: column;

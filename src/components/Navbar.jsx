@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-minatech sticky-top">
-      <div className="container">
+      <div className="container-fluid px-4">
 
         {/* Logo */}
         <Link className="navbar-brand" to="/">
