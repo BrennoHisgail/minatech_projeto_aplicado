@@ -16,7 +16,7 @@ export default function Oscs() {
           <div className="divider-pink" />
 
           <TeamCard
-            name="Tatiane Tálcover"
+            name="Tatiane Takimoto"
             role="Fundadora e coordenadora geral"
             imgSeed="tatiane"
             description="Somos uma equipe formada por 11 mulheres dedicadas a abrir
@@ -29,19 +29,23 @@ export default function Oscs() {
       </section>
 
       {/* OSCs parceiras */}
-      <section className="pb-4" id="oscs">
+      <section className="osc-section" id="oscs">
         <div className="container">
+          <h2 className="osc-section-title">OSCs parceiras</h2>
+          <div className="divider-pink mb-5" />
+
           <OscCard
-            logoText="corali"
+            name="Corali"
             description="A Corali é uma OSC dedicada a transformar a realidade de mulheres
               em situação de vulnerabilidade, promovendo sua inclusão no ecossistema
               de tecnologia e inovação."
           />
           <OscCard
-            logoText="Engenheiros Sem Fronteiras"
-            description="A Engenheiros Sem Fronteiras [Núcleo Florianópolis] é uma OSC que
+            name="Engenheiros Sem Fronteiras"
+            description="A Engenheiros Sem Fronteiras (Núcleo Florianópolis) é uma OSC que
               utiliza o conhecimento técnico da engenharia para promover transformações
               sociais e ambientais."
+            reverse
           />
         </div>
       </section>
