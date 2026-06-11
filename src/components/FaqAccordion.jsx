@@ -7,11 +7,11 @@ const FAQS = [
   },
   {
     question: 'Onde será a jornada Minatech?',
-    answer:   'A jornada será realizada em Menino, Florianópolis, Blumenau, Joinville e Chapecó. Elas se uniram para fazer a Jornada Minatech acontecer em diversas regiões de Santa Catarina.',
+    answer:   'A jornada será realizada em Florianópolis, Blumenau, Joinville e Chapecó — cidades que se uniram para fazer a Jornada Minatech acontecer em diversas regiões de Santa Catarina.',
   },
   {
     question: 'Formas de autorização de responsáveis?',
-    answer:   'Sim, se você tem menos de 18 anos, é necessário que um responsável confirme sua autorização. O termo será enviado por e-mail após a inscrição e deverá ser devolvido assinado em até 5 dias úteis.',
+    answer:   'Se você tem menos de 18 anos, é necessário que um responsável confirme sua autorização. O termo será enviado por e-mail após a inscrição e deverá ser devolvido assinado em até 5 dias úteis.',
   },
   {
     question: 'Como é organizada a data das aulas no Minatech?',
@@ -28,29 +28,25 @@ const FAQS = [
 ]
 
 export default function FaqAccordion() {
-  /* Índice do item aberto; -1 = nenhum */
   const [open, setOpen] = useState(0)
-
   const toggle = (i) => setOpen(open === i ? -1 : i)
 
   return (
-    <div className="accordion accordion-minatech">
+    <div className="accordion-minatech">
       {FAQS.map((faq, i) => (
-        <div className="accordion-item" key={i}>
-          <h2 className="accordion-header">
-            <button
-              className={`accordion-button ${open !== i ? 'collapsed' : ''}`}
-              type="button"
-              onClick={() => toggle(i)}
-            >
-              {faq.question}
-            </button>
-          </h2>
+        <div className={`faq-card${open === i ? ' faq-card--open' : ''}`} key={i}>
+          <button
+            className="faq-question"
+            onClick={() => toggle(i)}
+            aria-expanded={open === i}
+          >
+            <span>{faq.question}</span>
+            <i className={`bi bi-chevron-down faq-chevron${open === i ? ' open' : ''}`} />
+          </button>
 
-          {/* Exibe o corpo apenas quando aberto (React controla, sem Bootstrap JS) */}
           {open === i && (
-            <div className="accordion-collapse collapse show">
-              <div className="accordion-body">{faq.answer}</div>
+            <div className="faq-answer">
+              <p>{faq.answer}</p>
             </div>
           )}
         </div>

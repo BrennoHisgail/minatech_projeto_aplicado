@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { supabase } from '../lib/supabase'
 
 const STEPS = [
   { label: 'Dados pessoais'        },
@@ -9,14 +10,48 @@ const STEPS = [
 ]
 
 export default function MultiStepForm() {
-  const [step, setStep] = useState(0)
-  const [form, setForm] = useState({})
-  const [done, setDone] = useState(false)
+  const [step, setStep]     = useState(0)
+  const [form, setForm]     = useState({})
+  const [done, setDone]     = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [erro, setErro]     = useState(null)
 
-  const change = (e) => setForm({ ...form, [e.target.name]: e.target.value })
-  const next   = () => setStep(s => Math.min(s + 1, STEPS.length - 1))
-  const prev   = () => setStep(s => Math.max(s - 1, 0))
-  const submit = (e) => { e.preventDefault(); setDone(true) }
+  const change = (e) => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+
+  const changeNenhum = (e) => {
+    if (e.target.checked) {
+      setForm(f => ({ ...f, nenhum: true, computador: null, celular: null }))
+    } else {
+      setForm(f => ({ ...f, nenhum: false, computador: 'Sim', celular: '1' }))
+    }
+  }
+
+  const next = () => setStep(s => Math.min(s + 1, STEPS.length - 1))
+  const prev = () => setStep(s => Math.max(s - 1, 0))
+
+  const submit = async () => {
+    setLoading(true)
+    setErro(null)
+
+    const { error } = await supabase.from('inscricoes').insert({
+      nome:         form.nome,
+      idade:        form.idade ? Number(form.idade) : null,
+      escolaridade: form.escolaridade,
+      telefone:     form.telefone,
+      email:        form.email,
+      genero:       form.genero,
+      raca:         form.raca,
+      alergia:      form.alergia,
+      faixa_social: form.faixaSocial,
+      num_pessoas:  form.numPessoas,
+      computador:   form.nenhum ? null : (form.computador ?? 'Sim'),
+      celular:      form.nenhum ? null : (form.celular   ?? '1'),
+    })
+
+    setLoading(false)
+    if (error) { setErro('Erro ao enviar inscrição. Tente novamente.'); return }
+    setDone(true)
+  }
 
   /* Tela de sucesso após envio */
   if (done) return (
@@ -28,7 +63,7 @@ export default function MultiStepForm() {
   )
 
   return (
-    <form onSubmit={submit} id="multi-step-form">
+    <form onSubmit={e => e.preventDefault()} id="multi-step-form">
       <div className="row g-4">
 
         {/* Sidebar de etapas */}
@@ -182,40 +217,50 @@ export default function MultiStepForm() {
 
                 <div className="row align-items-center mb-3 g-2">
                   <div className="col-sm-7">
-                    <label className="form-label mb-0">Computador / notebook</label>
+                    <label className={`form-label mb-0${form.nenhum ? ' text-muted' : ''}`}>
+                      Computador / notebook
+                    </label>
                   </div>
                   <div className="col-sm-5">
                     <select className="form-select form-select-sm" name="computador"
-                      value={form.computador || 'Sim'} onChange={change}>
-                      <option>Sim</option>
-                      <option>Não</option>
+                      value={form.nenhum ? '' : (form.computador ?? 'Sim')}
+                      onChange={change}
+                      disabled={!!form.nenhum}>
+                      <option value="Sim">Sim</option>
+                      <option value="Não">Não</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="row align-items-center mb-3 g-2">
                   <div className="col-sm-7">
-                    <label className="form-label mb-0">Celular / tablet</label>
+                    <label className={`form-label mb-0${form.nenhum ? ' text-muted' : ''}`}>
+                      Celular / tablet
+                    </label>
                   </div>
                   <div className="col-sm-5">
                     <select className="form-select form-select-sm" name="celular"
-                      value={form.celular || '1'} onChange={change}>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3 ou mais</option>
-                      <option>Nenhum</option>
+                      value={form.nenhum ? '' : (form.celular ?? '1')}
+                      onChange={change}
+                      disabled={!!form.nenhum}>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3 ou mais">3 ou mais</option>
+                      <option value="Nenhum">Nenhum</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="form-check mb-3">
-                  <input className="form-check-input" type="checkbox" id="nenhum" name="nenhum" />
+                  <input className="form-check-input" type="checkbox" id="nenhum"
+                    checked={!!form.nenhum} onChange={changeNenhum} />
                   <label className="form-check-label" htmlFor="nenhum">Nenhum dos acima</label>
                 </div>
               </>
             )}
 
             {/* Navegação entre etapas */}
+            {erro && <p className="text-danger mt-3 mb-0" style={{ fontSize: 14 }}>{erro}</p>}
             <div className="d-flex justify-content-between mt-4">
               {step > 0
                 ? <button type="button" className="btn btn-outline-pink" onClick={prev}>
@@ -227,8 +272,11 @@ export default function MultiStepForm() {
                 ? <button type="button" className="btn btn-pink" onClick={next}>
                     Próximo <i className="bi bi-arrow-right ms-1" />
                   </button>
-                : <button type="submit" className="btn btn-pink">
-                    Inscreva-se já <i className="bi bi-check-lg ms-1" />
+                : <button type="button" className="btn btn-pink" onClick={submit} disabled={loading}>
+                    {loading
+                      ? <><span className="spinner-border spinner-border-sm me-2" />Enviando...</>
+                      : <>Inscreva-se já <i className="bi bi-check-lg ms-1" /></>
+                    }
                   </button>
               }
             </div>
