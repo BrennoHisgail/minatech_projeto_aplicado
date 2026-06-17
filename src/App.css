@@ -259,13 +259,143 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
-   COMPONENTE — ABOUT SECTION
+   PÁGINA — QUEM SOMOS
    ============================================================ */
-.about-section { padding: 80px 0; background: #fafafa; }
-.about-section h2 { font-size: 38px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
-.about-section .org-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
-.about-section p { font-size: 15px; line-height: 1.85; color: #444; margin-bottom: 16px; }
+.quem-somos-page { padding: 64px 0; }
+.quem-somos-header { margin-bottom: 48px; }
+.quem-somos-header h1 { font-size: 38px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+.quem-somos-lead { font-size: 16px; line-height: 1.8; color: #555; max-width: 680px; margin-bottom: 20px; }
 
+.missao-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.07);
+  padding: 28px 24px;
+  height: 100%;
+  transition: box-shadow .3s, transform .3s;
+}
+.missao-card:hover { box-shadow: 0 10px 36px rgba(255,77,109,.12); transform: translateY(-3px); }
+.missao-icon { font-size: 36px; color: var(--primary); display: block; margin-bottom: 14px; }
+.missao-card h5 { font-weight: 700; margin-bottom: 10px; }
+.missao-card p  { font-size: 14px; line-height: 1.7; color: #666; margin: 0; }
+
+/* ============================================================
+   COMPONENTE — DONATION SECTION (home)
+   ============================================================ */
+.donation-home-section {
+  background: var(--white);
+  padding: 64px 0;
+}
+
+.donation-home-block {
+  background: #fff;
+  border-radius: 20px;
+  border-top: 6px solid var(--primary);
+  box-shadow: 0 8px 40px rgba(0,0,0,.09);
+  padding: 48px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.donation-home-block-text { flex: 1; }
+
+.donation-home-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+.donation-home-title {
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--footer-bg);
+  margin-bottom: 14px;
+}
+.donation-home-title span { color: var(--primary); }
+.donation-home-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 0;
+  max-width: 360px;
+}
+
+.donation-home-block-pix {
+  flex-shrink: 0;
+  width: 320px;
+  background: #f8f8f8;
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid var(--border);
+}
+.donation-home-card-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.donation-pix-key {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--primary-light);
+  border: 1.5px solid var(--primary);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 14px;
+  word-break: break-all;
+}
+.btn-copy-pix {
+  width: 100%;
+  background: none;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  color: var(--primary);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-copy-pix:hover { background: var(--primary); color: #fff; }
+
+.btn-donation-cta {
+  background: #fff;
+  color: var(--primary);
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 28px;
+  transition: background .2s, color .2s, transform .2s;
+}
+.btn-donation-cta:hover {
+  background: var(--footer-bg);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .donation-home-block { flex-direction: column; padding: 32px 24px; }
+  .donation-home-block-pix { width: 100%; }
+}
+
+/* ============================================================
+   COMPONENTE — ABOUT SECTION (legado — mantido para compatibilidade)
+   ============================================================ */
 .about-img-wrap {
   border-radius: 14px; overflow: hidden; height: 380px;
   background: linear-gradient(160deg, #f8c8d9, #e89ab5);
@@ -301,8 +431,9 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    COMPONENTE — OSC SECTION + CARD
    ============================================================ */
-.osc-section { padding: 16px 0 64px; }
-.osc-section-title { font-size: 26px; font-weight: 700; margin-bottom: 4px; }
+.osc-section { padding: 64px 0; }
+.osc-section-title { font-size: 36px; font-weight: 700; margin-bottom: 12px; }
+.osc-section-sub { font-size: 15px; color: var(--text-muted); max-width: 580px; margin-bottom: 24px; line-height: 1.7; }
 
 .osc-card {
   background: #fff;
@@ -628,15 +759,8 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    COMPONENTE — FOOTER
    ============================================================ */
-.footer-minatech { background: var(--footer-bg); color: var(--white); padding: 12px 0; }
-
-.footer-item {
-  display: flex; flex-direction: column;
-  align-items: center; text-align: center; gap: 10px;
-}
-.footer-item i { font-size: 26px; }
-.footer-item span { font-size: 12px; color: rgba(255,255,255,.75); line-height: 1.4; max-width: 130px; }
-.footer-item.ig-block { background: rgba(255,255,255,.08); border-radius: 10px; padding: 16px 20px; }
+.footer-minatech { background: linear-gradient(to right, var(--footer-bg) 50%, var(--primary) 100%); color: var(--white); padding: 8px 0; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,.35); margin: 0; letter-spacing: 0.5px; }
 
 /* ============================================================
    BOTÕES GLOBAIS

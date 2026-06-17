@@ -2,8 +2,8 @@ import { Link, useLocation } from 'react-router-dom'
 
 /* Links de navegação centralizados */
 const NAV_LINKS = [
-  { to: '/oscs',        label: 'Quem somos'  },
-  { to: '/oscs',        label: 'OSCS',       hash: '#oscs' },
+  { to: '/quem-somos',  label: 'Quem somos'  },
+  { to: '/parceiras',   label: 'Parceiras'   },
   { to: '/inscricao',   label: 'Inscrição'   },
   { to: '/programacao', label: 'Programação' },
   { to: '/faq',         label: 'FAQ'         },
