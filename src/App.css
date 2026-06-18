@@ -148,7 +148,7 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   background: linear-gradient(to right, var(--footer-bg) 50%, var(--primary) 100%);
   color: var(--white);
-  padding: 56px 0;
+  padding: 20px 0;
 }
 
 .stats-prefix  { font-size: 18px; opacity: .8; margin-bottom: 4px; }
