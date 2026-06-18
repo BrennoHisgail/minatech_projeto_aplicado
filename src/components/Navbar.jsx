@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import marcaMinatech from '../assets/marca-Minatech-removebg-preview.png'
 
 /* Links de navegação centralizados */
 const NAV_LINKS = [
@@ -19,8 +20,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link className="navbar-brand" to="/">
-          <span className="logo-mina">Mina</span>
-          <span className="logo-tech">Tech</span>
+          <img src={marcaMinatech} alt="MinaTech" className="navbar-logo-img" />
         </Link>
 
         {/* Toggle mobile */}

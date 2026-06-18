@@ -54,6 +54,7 @@ img { max-width: 100%; display: block; }
 
 .logo-mina { font-weight: 400; font-size: 52px; color: rgba(255,255,255,.85); }
 .logo-tech { font-weight: 700; font-size: 52px; color: var(--primary);        }
+.navbar-logo-img { height: 100px; width: auto; display: block; filter: brightness(0) invert(1); }
 
 .navbar-minatech .navbar-collapse {
   padding-right: 0;
