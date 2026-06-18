@@ -10,10 +10,10 @@ import pastEvent2 from '../assets/ImagemTurma5.png'
 import vitoriaImg  from '../assets/ImagemMulherCodigo.png'
 import mariaImg    from '../assets/ImagemTurma.png'
 import pastEvent3 from '../assets/ImagemTurma2.png'
-import pastEvent4 from '../assets/ImagemTurma3.png'
+import pastEvent4 from '../assets/ImagemTurmaColaboradores.png'
 import pastEvent5 from '../assets/ImagemTurma4.png'
-import pastEvent6 from '../assets/ImagemTurma6.png'
-import pastEvent7 from '../assets/ImagemTurma7.png'
+import pastEvent6 from '../assets/ImagemColaboradores.png'
+import pastEvent7 from '../assets/ImagemColaboradores1.png'
 /* Dados dos eventos futuros */
 const EVENTS = [
   { date: 'Sábado, 14 de junho de 2025',  badge: 'HOJE',  time: '09h00 — 12h00', title: 'Oficina de Lógica de Programação', location: 'UFSC — Sala 101, Bloco A', isOnline: false },
