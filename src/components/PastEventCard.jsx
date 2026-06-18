@@ -1,21 +1,14 @@
-/* @param {string} img  — imagem importada do evento */
-/* @param {string} text — descrição do evento passado */
-export default function PastEventCard({ img, text }) {
+export default function PastEventCard({ img, title, onClick }) {
   return (
-    <div className="past-event-card">
-
-      <div className="past-event-img">
-        <img
-          src={img}
-          alt="Evento passado MinaTech"
-        />
+    <div className="past-card" onClick={onClick} role="button" tabIndex={0}
+      onKeyDown={e => e.key === 'Enter' && onClick()}>
+      <div className="past-card-img">
+        <img src={img} alt={title} />
+        <div className="past-card-overlay">
+          <i className="bi bi-arrows-fullscreen" />
+        </div>
       </div>
-
-      <div className="past-event-body">
-        <p>{text}</p>
-        <a href="#" className="btn btn-pink btn-sm">Veja mais</a>
-      </div>
-
+      <p className="past-card-title">{title}</p>
     </div>
   )
 }

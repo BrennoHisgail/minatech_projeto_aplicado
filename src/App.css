@@ -619,17 +619,81 @@ img { max-width: 100%; display: block; }
    COMPONENTE — PAST EVENT CARD
    ============================================================ */
 .past-events { padding: 64px 0; background: #f9f9f9; }
-.past-events h2 { font-size: 28px; font-weight: 700; margin-bottom: 36px; }
+.past-events h2 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
 
-.past-event-card {
-  background: var(--white); border-radius: 14px; overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,.07);
-  display: flex; flex-direction: column; height: 100%;
+/* Card compacto clicável */
+.past-card {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 14px rgba(0,0,0,.08);
+  transition: transform .25s, box-shadow .25s;
+  background: var(--white);
+  border-bottom: 3px solid var(--primary);
 }
-.past-event-img { height: 200px; overflow: hidden; background: linear-gradient(135deg,#f8c8d9,#d08090); }
-.past-event-img img { width: 100%; height: 100%; object-fit: cover; }
-.past-event-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-.past-event-body p { font-size: 14px; line-height: 1.8; color: #555; flex: 1; margin-bottom: 20px; }
+.past-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,.14); }
+
+.past-card-img {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+.past-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.past-card:hover .past-card-img img { transform: scale(1.05); }
+
+.past-card-overlay {
+  position: absolute; inset: 0;
+  background: rgba(61,12,31,.35);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .25s;
+  color: #fff; font-size: 22px;
+}
+.past-card:hover .past-card-overlay { opacity: 1; }
+
+.past-card-title {
+  font-size: 13px; font-weight: 600;
+  padding: 10px 12px;
+  margin: 0;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+/* Modal */
+.past-modal-backdrop {
+  position: fixed; inset: 0; z-index: 1050;
+  background: rgba(0,0,0,.7);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.past-modal-box {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 16px 64px rgba(0,0,0,.3);
+}
+.past-modal-img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  background: #111;
+  display: block;
+}
+.past-modal-body { padding: 20px 24px 24px; }
+.past-modal-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.past-modal-text { font-size: 14px; line-height: 1.8; color: #555; margin: 0; }
+.past-modal-close {
+  position: absolute; top: 12px; right: 12px;
+  background: rgba(0,0,0,.5); border: none;
+  color: #fff; border-radius: 50%;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 14px;
+  transition: background .2s;
+}
+.past-modal-close:hover { background: var(--primary); }
 
 /* ============================================================
    COMPONENTE — TESTIMONIAL CARD

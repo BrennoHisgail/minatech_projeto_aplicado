@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Navbar          from '../components/Navbar'
 import EventCard        from '../components/EventCard'
 import ScheduleBox      from '../components/ScheduleBox'
@@ -35,32 +36,39 @@ const SCHEDULE = [
 /* Eventos passados */
 const PAST = [
   {
-    img: pastEvent1,
-    text: 'Nossa imersão no Laboratório de Química da UFSC, conduzida pelas professoras Bomnina e Gisele, foi uma vitrine sobre a versatilidade da Engenharia Química. Além de explorarmos as áreas de atuação, vivenciamos na prática o tratamento de efluentes.',
+    img:   pastEvent1,
+    title: 'Imersão no Lab de Química — UFSC',
+    text:  'Nossa imersão no Laboratório de Química da UFSC, conduzida pelas professoras Bomnina e Gisele, foi uma vitrine sobre a versatilidade da Engenharia Química. Além de explorarmos as áreas de atuação, vivenciamos na prática o tratamento de efluentes.',
   },
   {
-    img: pastEvent2,
-    text: 'Com a participação especial do Time Curie, do Senai, e da professora Daniela Szruk, graduandas e graduadas da UFSC compartilharam experiências mostrando caminhos em trajetória e conhecimentos técnicos avançados nas áreas de engenharia.',
+    img:   pastEvent2,
+    title: 'Talk — Trajetórias em Engenharia',
+    text:  'Com a participação especial do Time Curie, do Senai, e da professora Daniela Szruk, graduandas e graduadas da UFSC compartilharam experiências mostrando caminhos em trajetória e conhecimentos técnicos avançados nas áreas de engenharia.',
   },
   {
-    img: pastEvent3,
-    text: 'Roda de conversa entre as participantes da Jornada Minatech, um espaço de troca de experiências e fortalecimento da rede entre as meninas do programa.',
+    img:   pastEvent3,
+    title: 'Roda de Conversa MinaTech',
+    text:  'Roda de conversa entre as participantes da Jornada Minatech, um espaço de troca de experiências e fortalecimento da rede entre as meninas do programa.',
   },
   {
-    img: pastEvent4,
-    text: 'Encontro de integração reunindo participantes de diferentes turmas em um momento de celebração e aprendizado coletivo.',
+    img:   pastEvent4,
+    title: 'Encontro de Integração',
+    text:  'Encontro de integração reunindo participantes de diferentes turmas em um momento de celebração e aprendizado coletivo.',
   },
   {
-    img: pastEvent5,
-    text: 'Momento de descontração e energia durante uma das dinâmicas em grupo da Jornada Minatech.',
+    img:   pastEvent5,
+    title: 'Dinâmica em Grupo',
+    text:  'Momento de descontração e energia durante uma das dinâmicas em grupo da Jornada Minatech.',
   },
   {
-    img: pastEvent6,
-    text: 'Abertura oficial de uma das edições, com apresentação da proposta do programa às novas participantes pela equipe organizadora.',
+    img:   pastEvent6,
+    title: 'Abertura Oficial da Edição',
+    text:  'Abertura oficial de uma das edições, com apresentação da proposta do programa às novas participantes pela equipe organizadora.',
   },
   {
-    img: pastEvent7,
-    text: 'Talk sobre trajetórias profissionais, com participantes atentas às experiências compartilhadas por profissionais da área de tecnologia e engenharia.',
+    img:   pastEvent7,
+    title: 'Talk — Trajetórias Profissionais',
+    text:  'Talk sobre trajetórias profissionais, com participantes atentas às experiências compartilhadas por profissionais da área de tecnologia e engenharia.',
   },
 ]
 
@@ -79,6 +87,8 @@ const TESTIMONIALS = [
 ]
 
 export default function Programacao() {
+  const [selected, setSelected] = useState(null)
+
   return (
     <>
       <Navbar />
@@ -91,14 +101,11 @@ export default function Programacao() {
           <div className="divider-pink" />
 
           <div className="row g-4 mt-2">
-            {/* Lista de eventos */}
             <div className="col-lg-7">
               {EVENTS.map((ev, i) => (
                 <EventCard key={i} {...ev} />
               ))}
             </div>
-
-            {/* Agenda em destaque */}
             <div className="col-lg-5">
               <ScheduleBox title="Sábado — 14/06" items={SCHEDULE} />
             </div>
@@ -109,30 +116,37 @@ export default function Programacao() {
       {/* Programações passadas */}
       <section className="past-events">
         <div className="container">
-          <h2>Programações Passadas</h2>
+          <h2>Edições Anteriores</h2>
           <div className="divider-pink" />
-          <div className="row g-4 mt-2">
+          <div className="row g-3 mt-2">
             {PAST.map((ev, i) => (
-              <div className="col-md-6" key={i}>
-                <PastEventCard {...ev} />
+              <div className="col-6 col-md-4 col-lg-3" key={i}>
+                <PastEventCard
+                  img={ev.img}
+                  title={ev.title}
+                  onClick={() => setSelected(ev)}
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Depoimentos */}
-      <section className="testimonials">
-        <div className="container">
-          <h2>Depoimentos de ex-alunas</h2>
-          <div className="divider-pink" />
-          <div className="mt-4">
-            {TESTIMONIALS.map((t, i) => (
-              <TestimonialCard key={i} {...t} />
-            ))}
+      {/* Modal */}
+      {selected && (
+        <div className="past-modal-backdrop" onClick={() => setSelected(null)}>
+          <div className="past-modal-box" onClick={e => e.stopPropagation()}>
+            <button className="past-modal-close" onClick={() => setSelected(null)}>
+              <i className="bi bi-x-lg" />
+            </button>
+            <img src={selected.img} alt={selected.title} className="past-modal-img" />
+            <div className="past-modal-body">
+              <h3 className="past-modal-title">{selected.title}</h3>
+              <p className="past-modal-text">{selected.text}</p>
+            </div>
           </div>
         </div>
-      </section>
+      )}
 
       <Footer />
     </>
