@@ -116,7 +116,7 @@ export default function Programacao() {
       {/* Programações passadas */}
       <section className="past-events">
         <div className="container">
-          <h2>Edições Anteriores</h2>
+          <h2>Eventos Anteriores</h2>
           <div className="divider-pink" />
           <div className="row g-3 mt-2">
             {PAST.map((ev, i) => (
