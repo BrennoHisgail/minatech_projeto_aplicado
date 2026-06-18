@@ -11,6 +11,9 @@ import vitoriaImg  from '../assets/ImagemMulherCodigo.png'
 import mariaImg    from '../assets/ImagemTurma.png'
 import pastEvent3 from '../assets/ImagemTurma2.png'
 import pastEvent4 from '../assets/ImagemTurma3.png'
+import pastEvent5 from '../assets/ImagemTurma4.png'
+import pastEvent6 from '../assets/ImagemTurma6.png'
+import pastEvent7 from '../assets/ImagemTurma7.png'
 /* Dados dos eventos futuros */
 const EVENTS = [
   { date: 'Sábado, 14 de junho de 2025',  badge: 'HOJE',  time: '09h00 — 12h00', title: 'Oficina de Lógica de Programação', location: 'UFSC — Sala 101, Bloco A', isOnline: false },
@@ -41,11 +44,23 @@ const PAST = [
   },
   {
     img: pastEvent3,
-    text: 'Descreva aqui o evento relacionado a essa foto — por exemplo, uma talk, oficina ou encontro presencial da Jornada MinaTech.',
+    text: 'Roda de conversa entre as participantes da Jornada Minatech, um espaço de troca de experiências e fortalecimento da rede entre as meninas do programa.',
   },
   {
     img: pastEvent4,
-    text: 'Descreva aqui o evento relacionado a essa foto.',
+    text: 'Encontro de integração reunindo participantes de diferentes turmas em um momento de celebração e aprendizado coletivo.',
+  },
+  {
+    img: pastEvent5,
+    text: 'Momento de descontração e energia durante uma das dinâmicas em grupo da Jornada Minatech.',
+  },
+  {
+    img: pastEvent6,
+    text: 'Abertura oficial de uma das edições, com apresentação da proposta do programa às novas participantes pela equipe organizadora.',
+  },
+  {
+    img: pastEvent7,
+    text: 'Talk sobre trajetórias profissionais, com participantes atentas às experiências compartilhadas por profissionais da área de tecnologia e engenharia.',
   },
 ]
 
