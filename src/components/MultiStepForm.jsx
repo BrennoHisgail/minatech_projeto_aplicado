@@ -33,6 +33,12 @@ export default function MultiStepForm() {
     setLoading(true)
     setErro(null)
 
+    if (!supabase) {
+      setErro('Formulário indisponível neste ambiente.')
+      setLoading(false)
+      return
+    }
+
     const { error } = await supabase.from('inscricoes').insert({
       nome:         form.nome,
       idade:        form.idade ? Number(form.idade) : null,
