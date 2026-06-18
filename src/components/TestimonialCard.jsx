@@ -1,13 +1,13 @@
-/* @param {string} name    — nome da ex-aluna */
-/* @param {string} text    — depoimento       */
-/* @param {string} imgSeed — seed picsum      */
-export default function TestimonialCard({ name, text, imgSeed }) {
+/* @param {string} name — nome da ex-aluna */
+/* @param {string} text — depoimento       */
+/* @param {string} img  — imagem importada */
+export default function TestimonialCard({ name, text, img }) {
   return (
     <div className="testimonial-card">
 
       <div className="testimonial-avatar">
         <img
-          src={`https://picsum.photos/seed/${imgSeed}/80/80`}
+          src={img}
           alt={`Foto de ${name}`}
         />
       </div>

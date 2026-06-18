@@ -5,6 +5,12 @@ import PastEventCard    from '../components/PastEventCard'
 import TestimonialCard  from '../components/TestimonialCard'
 import Footer           from '../components/Footer'
 
+import pastEvent1 from '../assets/ImagemTurma1.png'
+import pastEvent2 from '../assets/ImagemTurma5.png'
+import vitoriaImg  from '../assets/ImagemMulherCodigo.png'
+import mariaImg    from '../assets/ImagemTurma.png'
+import pastEvent3 from '../assets/ImagemTurma2.png'
+import pastEvent4 from '../assets/ImagemTurma3.png'
 /* Dados dos eventos futuros */
 const EVENTS = [
   { date: 'Sábado, 14 de junho de 2025',  badge: 'HOJE',  time: '09h00 — 12h00', title: 'Oficina de Lógica de Programação', location: 'UFSC — Sala 101, Bloco A', isOnline: false },
@@ -26,24 +32,32 @@ const SCHEDULE = [
 /* Eventos passados */
 const PAST = [
   {
-    imgSeed: 'event1',
+    img: pastEvent1,
     text: 'Nossa imersão no Laboratório de Química da UFSC, conduzida pelas professoras Bomnina e Gisele, foi uma vitrine sobre a versatilidade da Engenharia Química. Além de explorarmos as áreas de atuação, vivenciamos na prática o tratamento de efluentes.',
   },
   {
-    imgSeed: 'event2',
+    img: pastEvent2,
     text: 'Com a participação especial do Time Curie, do Senai, e da professora Daniela Szruk, graduandas e graduadas da UFSC compartilharam experiências mostrando caminhos em trajetória e conhecimentos técnicos avançados nas áreas de engenharia.',
+  },
+  {
+    img: pastEvent3,
+    text: 'Descreva aqui o evento relacionado a essa foto — por exemplo, uma talk, oficina ou encontro presencial da Jornada MinaTech.',
+  },
+  {
+    img: pastEvent4,
+    text: 'Descreva aqui o evento relacionado a essa foto.',
   },
 ]
 
 /* Depoimentos */
 const TESTIMONIALS = [
   {
-    imgSeed: 'vitoria',
+    img: vitoriaImg,
     name: 'Vitória da Rosa',
     text: 'Minha jornada no Minatech, em 2022 e 2023, foi uma grande fonte de inspiração e crescimento. O programa me ajudou a descobrir caminhos na Engenharia e Tecnologia, mostrando que elas têm capacidade e que essas profissões não são só para meninas.',
   },
   {
-    imgSeed: 'maria',
+    img: mariaImg,
     name: 'Maria Eduarde',
     text: 'Participar do projeto entre 2020 e 2022 transformou minha visão de futuro e fortaleceu minha confiança na programação. Hoje, cursando Ciência da Computação, reconheço o quanto essa experiência contribuiu para minha base acadêmica e profissional.',
   },

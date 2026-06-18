@@ -1,12 +1,12 @@
-/* @param {string} imgSeed — seed para picsum.photos */
-/* @param {string} text    — descrição do evento passado */
-export default function PastEventCard({ imgSeed, text }) {
+/* @param {string} img  — imagem importada do evento */
+/* @param {string} text — descrição do evento passado */
+export default function PastEventCard({ img, text }) {
   return (
     <div className="past-event-card">
 
       <div className="past-event-img">
         <img
-          src={`https://picsum.photos/seed/${imgSeed}/600/200`}
+          src={img}
           alt="Evento passado MinaTech"
         />
       </div>
