@@ -7,6 +7,7 @@ import Inscricao   from './pages/Inscricao'
 import Programacao from './pages/Programacao'
 import Faq         from './pages/Faq'
 import Doacao      from './pages/Doacao'
+import Contato     from './pages/Contato'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Route path="/programacao" element={<Programacao />} />
       <Route path="/faq"         element={<Faq />}         />
       <Route path="/doacao"      element={<Doacao />}      />
+      <Route path="/contato"     element={<Contato />}     />
     </Routes>
   )
 }

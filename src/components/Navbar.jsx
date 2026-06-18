@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { to: '/inscricao',   label: 'Inscrição'   },
   { to: '/programacao', label: 'Programação' },
   { to: '/faq',         label: 'FAQ'         },
-  { to: '/#contato',    label: 'Contato'     },
+  { to: '/contato',     label: 'Contato'     },
 ]
 
 export default function Navbar() {
