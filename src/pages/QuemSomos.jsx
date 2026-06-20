@@ -1,6 +1,7 @@
-import Navbar   from '../components/Navbar'
-import TeamCard  from '../components/TeamCard'
-import Footer    from '../components/Footer'
+import Navbar       from '../components/Navbar'
+import OscCard      from '../components/OscCard'
+import PartnersGrid from '../components/PartnersGrid'
+import Footer       from '../components/Footer'
 
 export default function QuemSomos() {
   return (
@@ -10,17 +11,56 @@ export default function QuemSomos() {
       <section className="quem-somos-page">
         <div className="container">
 
-          <div className="quem-somos-header">
-            <h1>Quem somos</h1>
-            <p className="quem-somos-lead">
-              Somos a Jornada Minatech. A Corali e os Engenheiros sem Fronteiras
-              (Florianópolis) se uniram para organizar um espaço seguro de aprendizado
-              e empoderamento para meninas na área de tecnologia.
-            </p>
-            <div className="divider-pink" />
+          {/* Conheça a equipe */}
+          <div className="qs-team-section">
+            <div className="row g-5 align-items-center">
+
+              <div className="col-md-5">
+                <div className="qs-team-photo-card">
+                  <img
+                    src="https://picsum.photos/seed/tatiane/480/560"
+                    alt="Tatiana Takimoto"
+                  />
+                  <div className="qs-team-overlay">
+                    <span className="qs-team-name">Tatiana Takimoto</span>
+                    <span className="qs-team-role">Fundadora e coordenadora geral</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-md-7">
+                <h2 className="qs-team-title">Conheça a<br />equipe</h2>
+                <p className="qs-team-desc">
+                  Somos uma equipe formada por 11 mulheres dedicadas a abrir
+                  caminhos para outras mulheres nos setores de tecnologia e engenharia.
+                  Nosso foco é acolher aquelas em situação de vulnerabilidade, oferecendo
+                  suporte, capacitação e as oportunidades necessárias para que ocupem
+                  seus espaços de direito e cresçam com excelência no mercado de trabalho.
+                </p>
+              </div>
+
+            </div>
           </div>
 
-          <div className="quem-somos-missao row g-4 mb-5">
+          {/* OSCs */}
+          <div className="qs-osc-section">
+            <OscCard
+              name="Corali"
+              description="A Corali é uma OSC dedicada a transformar a realidade de mulheres
+                em situação de vulnerabilidade, promovendo sua inclusão no ecossistema
+                de tecnologia e inovação."
+            />
+            <OscCard
+              name="Engenheiros Sem Fronteiras"
+              description="A Engenheiros Sem Fronteiras (Núcleo Florianópolis) é uma OSC que
+                utiliza o conhecimento técnico da engenharia para promover transformações
+                sociais e ambientais."
+              reverse
+            />
+          </div>
+
+          {/* Missão / Visão / Valores */}
+          <div className="row g-4 mb-5">
             <div className="col-md-4">
               <div className="missao-card">
                 <i className="bi bi-lightbulb missao-icon" />
@@ -47,22 +87,10 @@ export default function QuemSomos() {
             </div>
           </div>
 
-          <h2 className="fw-bold mb-2">Conheça a equipe</h2>
-          <div className="divider-pink mb-4" />
-
-          <TeamCard
-            name="Tatiane Takimoto"
-            role="Fundadora e coordenadora geral"
-            imgSeed="tatiane"
-            description="Somos uma equipe formada por 11 mulheres dedicadas a abrir
-              caminhos para outras mulheres nos setores de tecnologia e engenharia.
-              Nosso foco é acolher aquelas em situação de vulnerabilidade, oferecendo
-              suporte, capacitação e as oportunidades necessárias para que ocupem
-              seus espaços de direito e cresçam com excelência no mercado de trabalho."
-          />
-
         </div>
       </section>
+
+      <PartnersGrid />
 
       <Footer />
     </>

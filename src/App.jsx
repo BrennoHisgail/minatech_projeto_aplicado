@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom'
 
 import Home        from './pages/Home'
 import QuemSomos   from './pages/QuemSomos'
-import Parceiras   from './pages/Parceiras'
 import Inscricao   from './pages/Inscricao'
 import Programacao from './pages/Programacao'
 import Faq         from './pages/Faq'
@@ -14,7 +13,6 @@ export default function App() {
     <Routes>
       <Route path="/"            element={<Home />}        />
       <Route path="/quem-somos"  element={<QuemSomos />}   />
-      <Route path="/parceiras"   element={<Parceiras />}   />
       <Route path="/inscricao"   element={<Inscricao />}   />
       <Route path="/programacao" element={<Programacao />} />
       <Route path="/faq"         element={<Faq />}         />

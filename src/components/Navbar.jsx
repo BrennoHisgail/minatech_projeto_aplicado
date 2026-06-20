@@ -4,10 +4,10 @@ import marcaMinatech from '../assets/marca-Minatech-removebg-preview.png'
 /* Links de navegação centralizados */
 const NAV_LINKS = [
   { to: '/quem-somos',  label: 'Quem somos'  },
-  { to: '/parceiras',   label: 'Parceiras'   },
   { to: '/inscricao',   label: 'Inscrição'   },
   { to: '/programacao', label: 'Programação' },
   { to: '/faq',         label: 'FAQ'         },
+  { to: '/doacao',      label: 'Doação'      },
   { to: '/contato',     label: 'Contato'     },
 ]
 
@@ -43,7 +43,7 @@ export default function Navbar() {
               <li className="nav-item" key={i}>
                 <Link
                   className={`nav-link ${pathname === link.to ? 'active' : ''}`}
-                  to={link.hash ? link.to + link.hash : link.to}
+                  to={link.to}
                 >
                   {link.label}
                 </Link>
