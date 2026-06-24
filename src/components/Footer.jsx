@@ -20,13 +20,14 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
 
-          {/* coluna da marca — logo e descrição curta do projeto */}
+          {/* coluna da marca — logo, descrição e copyright */}
           <div className="footer-brand">
             <img src={marcaMinatech} alt="MinaTech" className="footer-logo" />
             <p className="footer-desc">
               Tecnologia feita por meninas, para meninas. Um programa 100% gratuito
               em Florianópolis, SC.
             </p>
+            <p className="footer-copy">MinaTech™ — Todos os direitos reservados</p>
           </div>
 
           {/* coluna de navegação — lista todos os links do site */}
@@ -66,10 +67,6 @@ export default function Footer() {
 
         </div>
 
-        {/* linha de rodapé com copyright */}
-        <div className="footer-bottom">
-          <p>MinaTech™ — Todos os direitos reservados</p>
-        </div>
       </div>
     </footer>
   )
