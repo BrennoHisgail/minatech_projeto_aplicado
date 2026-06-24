@@ -1,6 +1,10 @@
+// Footer do site MinaTech
+// Mostra logo, links de navegação, informações de contato e créditos
+
 import { Link } from 'react-router-dom'
 import marcaMinatech from '../assets/marca-Minatech-removebg-preview.png'
 
+// mesmos links do menu de navegação
 const LINKS = [
   { to: '/quem-somos',  label: 'Quem somos'  },
   { to: '/inscricao',   label: 'Inscrição'   },
@@ -16,7 +20,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
 
-          {/* Marca */}
+          {/* coluna da marca — logo e descrição curta do projeto */}
           <div className="footer-brand">
             <img src={marcaMinatech} alt="MinaTech" className="footer-logo" />
             <p className="footer-desc">
@@ -25,7 +29,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links */}
+          {/* coluna de navegação — lista todos os links do site */}
           <div className="footer-col">
             <p className="footer-col-title">Navegação</p>
             <ul className="footer-links">
@@ -35,7 +39,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contato */}
+          {/* coluna de contato — email, whatsapp, instagram e cidade */}
           <div className="footer-col">
             <p className="footer-col-title">Contato</p>
             <ul className="footer-links">
@@ -62,6 +66,7 @@ export default function Footer() {
 
         </div>
 
+        {/* linha de rodapé com copyright */}
         <div className="footer-bottom">
           <p>MinaTech™ — Todos os direitos reservados</p>
         </div>

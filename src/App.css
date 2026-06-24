@@ -402,7 +402,7 @@ img { max-width: 100%; display: block; }
 
 .osc-logo-wrap {
   flex-shrink: 0;
-  width: 180px;
+  width: 220px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -410,8 +410,8 @@ img { max-width: 100%; display: block; }
   gap: 8px;
 }
 .osc-logo-img {
-  max-width: 160px;
-  max-height: 80px;
+  max-width: 200px;
+  max-height: 110px;
   object-fit: contain;
 }
 .osc-logo-placeholder {

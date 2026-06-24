@@ -1,7 +1,11 @@
+// Página de doação do MinaTech
+// Mostra o impacto do programa, a chave PIX e o formulário pra registrar a doação
+
 import Navbar       from '../components/Navbar'
 import Footer       from '../components/Footer'
 import DonationForm from '../components/DonationForm'
 
+// lista do que é financiado pelas doações
 const IMPACTOS = [
   { icon: 'bi-laptop',  title: 'Workshops e talks',   desc: 'Encontros práticos com profissionais reais da área de tecnologia e engenharia.' },
   { icon: 'bi-book',    title: 'Material didático',   desc: 'Todo o material utilizado nas atividades é fornecido gratuitamente às participantes.' },
@@ -13,7 +17,7 @@ export default function Doacao() {
     <>
       <Navbar />
 
-      {/* Banner topo */}
+      {/* banner do topo com título e estatísticas do programa */}
       <section className="doacao-banner">
         <div className="container text-center">
           <p className="doacao-eyebrow">Faça a diferença</p>
@@ -21,6 +25,8 @@ export default function Doacao() {
             Sua doação abre <span>portas</span><br />
             para meninas na tecnologia.
           </h1>
+
+          {/* números em destaque pra mostrar o impacto */}
           <div className="doacao-banner-stats">
             <div className="doacao-banner-stat">
               <span className="doacao-banner-num">150+</span>
@@ -40,12 +46,12 @@ export default function Doacao() {
         </div>
       </section>
 
-      {/* Corpo */}
+      {/* corpo da página dividido em duas colunas */}
       <section className="doacao-corpo">
         <div className="container">
           <div className="row g-5 align-items-start">
 
-            {/* Esquerda — impacto */}
+            {/* coluna esquerda — lista o que a doação financia */}
             <div className="col-lg-5">
               <h2 className="doacao-corpo-title">O que sua doação financia</h2>
               <div className="doacao-lista">
@@ -63,9 +69,10 @@ export default function Doacao() {
               </div>
             </div>
 
-            {/* Direita — formulário */}
+            {/* coluna direita — card com chave PIX e formulário de doação */}
             <div className="col-lg-7">
               <div className="doacao-form-card">
+                {/* destaque visual da chave PIX antes do formulário */}
                 <div className="doacao-pix-destaque">
                   <span className="doacao-pix-label">Chave PIX (e-mail)</span>
                   <span className="doacao-pix-value">minatech.floripa@gmail.com</span>

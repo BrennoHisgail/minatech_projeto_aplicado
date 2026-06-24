@@ -1,3 +1,6 @@
+// Página de programação do MinaTech
+// Mostra os próximos eventos, a agenda do dia, eventos passados e depoimentos
+
 import { useState } from 'react'
 import Navbar          from '../components/Navbar'
 import EventCard        from '../components/EventCard'
@@ -6,6 +9,7 @@ import PastEventCard    from '../components/PastEventCard'
 import TestimonialCard  from '../components/TestimonialCard'
 import Footer           from '../components/Footer'
 
+// imagens dos eventos passados e depoimentos
 import pastEvent1 from '../assets/ImagemTurma1.png'
 import pastEvent2 from '../assets/ImagemTurma5.png'
 import vitoriaImg  from '../assets/ImagemMulherCodigo.png'
@@ -15,7 +19,8 @@ import pastEvent4 from '../assets/ImagemTurmaColaboradores.png'
 import pastEvent5 from '../assets/ImagemTurma4.png'
 import pastEvent6 from '../assets/ImagemColaboradores.png'
 import pastEvent7 from '../assets/ImagemColaboradores1.png'
-/* Dados dos eventos futuros */
+
+// lista dos próximos eventos da edição atual
 const EVENTS = [
   { date: 'Sábado, 14 de junho de 2025',  badge: 'HOJE',  time: '09h00 — 12h00', title: 'Oficina de Lógica de Programação', location: 'UFSC — Sala 101, Bloco A', isOnline: false },
   { date: 'Sábado, 28 de junho de 2025',  badge: 'ZOOM',  time: '10h00 — 12h00', title: 'Talk — Mulheres na Engenharia',    location: 'Online via Zoom',             isOnline: true  },
@@ -23,7 +28,7 @@ const EVENTS = [
   { date: 'Sábado, 26 de julho de 2025',  badge: null,    time: '14h00 — 17h00', title: 'Workshop de Empreendedorismo',     location: 'Instituto de Inovação Corali', isOnline: false },
 ]
 
-/* Agenda detalhada do sábado em destaque */
+// horários detalhados do evento em destaque (14/06)
 const SCHEDULE = [
   { time: '08h30', title: 'Credenciamento',              desc: 'Recepção e entrega de materiais'     },
   { time: '09h00', title: 'Abertura oficial',            desc: 'Boas-vindas pela coordenação'        },
@@ -33,7 +38,7 @@ const SCHEDULE = [
   { time: '12h00', title: 'Encerramento',                desc: ''                                    },
 ]
 
-/* Eventos passados */
+// fotos e descrições dos eventos que já aconteceram
 const PAST = [
   {
     img:   pastEvent1,
@@ -72,7 +77,7 @@ const PAST = [
   },
 ]
 
-/* Depoimentos */
+// depoimentos de ex-participantes do programa
 const TESTIMONIALS = [
   {
     img: vitoriaImg,
@@ -87,13 +92,14 @@ const TESTIMONIALS = [
 ]
 
 export default function Programacao() {
+  // guarda qual evento passado está selecionado pra abrir no modal
   const [selected, setSelected] = useState(null)
 
   return (
     <>
       <Navbar />
 
-      {/* Programação atual */}
+      {/* seção dos próximos eventos com lista e agenda do dia */}
       <section className="prog-section">
         <div className="container">
           <h1>Programação</h1>
@@ -101,11 +107,14 @@ export default function Programacao() {
           <div className="divider-pink" />
 
           <div className="row g-4 mt-2">
+            {/* coluna com os cards de cada evento futuro */}
             <div className="col-lg-7">
               {EVENTS.map((ev, i) => (
                 <EventCard key={i} {...ev} />
               ))}
             </div>
+
+            {/* coluna com a agenda horária do evento em destaque */}
             <div className="col-lg-5">
               <ScheduleBox title="Sábado — 14/06" items={SCHEDULE} />
             </div>
@@ -113,12 +122,13 @@ export default function Programacao() {
         </div>
       </section>
 
-      {/* Programações passadas */}
+      {/* galeria de fotos dos eventos que já aconteceram */}
       <section className="past-events">
         <div className="container">
           <h2>Eventos Anteriores</h2>
           <div className="divider-pink" />
           <div className="row g-3 mt-2">
+            {/* cada card abre o modal com mais detalhes quando clicado */}
             {PAST.map((ev, i) => (
               <div className="col-6 col-md-4 col-lg-3" key={i}>
                 <PastEventCard
@@ -132,7 +142,7 @@ export default function Programacao() {
         </div>
       </section>
 
-      {/* Modal */}
+      {/* modal que abre quando clica em um evento passado — fecha ao clicar fora */}
       {selected && (
         <div className="past-modal-backdrop" onClick={() => setSelected(null)}>
           <div className="past-modal-box" onClick={e => e.stopPropagation()}>

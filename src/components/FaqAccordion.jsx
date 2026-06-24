@@ -7,7 +7,7 @@ const FAQS = [
   },
   {
     question: 'Onde será a jornada Minatech?',
-    answer:   'A jornada será realizada em Florianópolis, Blumenau, Joinville e Chapecó — cidades que se uniram para fazer a Jornada Minatech acontecer em diversas regiões de Santa Catarina.',
+    answer:   'A jornada acontece em Florianópolis, Blumenau, Joinville e Chapecó, levando o programa para diferentes regiões de Santa Catarina.',
   },
   {
     question: 'Formas de autorização de responsáveis?',

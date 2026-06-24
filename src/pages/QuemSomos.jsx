@@ -1,7 +1,13 @@
+// Página "Quem Somos" do site MinaTech
+// Mostra a equipe, as OSCs parceiras, missão/visão/valores e o grid de apoiadores
+
 import Navbar       from '../components/Navbar'
 import OscCard      from '../components/OscCard'
 import PartnersGrid from '../components/PartnersGrid'
 import Footer       from '../components/Footer'
+import takimotoImg    from '../assets/takimoto.jpg'
+import coraliImg      from '../assets/corali-roxo.jpg'
+import engenheirosImg from '../assets/engenheiros.png'
 
 export default function QuemSomos() {
   return (
@@ -11,14 +17,15 @@ export default function QuemSomos() {
       <section className="quem-somos-page">
         <div className="container">
 
-          {/* Conheça a equipe */}
+          {/* seção da equipe — foto da fundadora e texto de apresentação */}
           <div className="qs-team-section">
             <div className="row g-5 align-items-center">
 
+              {/* foto da Tatiana com nome e cargo em overlay */}
               <div className="col-md-5">
                 <div className="qs-team-photo-card">
                   <img
-                    src="https://picsum.photos/seed/tatiane/480/560"
+                    src={takimotoImg}
                     alt="Tatiana Takimoto"
                   />
                   <div className="qs-team-overlay">
@@ -28,38 +35,41 @@ export default function QuemSomos() {
                 </div>
               </div>
 
+              {/* texto descrevendo a equipe */}
               <div className="col-md-7">
                 <h2 className="qs-team-title">Conheça a<br />equipe</h2>
                 <p className="qs-team-desc">
-                  Somos uma equipe formada por 11 mulheres dedicadas a abrir
-                  caminhos para outras mulheres nos setores de tecnologia e engenharia.
-                  Nosso foco é acolher aquelas em situação de vulnerabilidade, oferecendo
-                  suporte, capacitação e as oportunidades necessárias para que ocupem
-                  seus espaços de direito e cresçam com excelência no mercado de trabalho.
+                  Somos uma equipe de 11 mulheres abrindo caminhos para outras
+                  mulheres na tecnologia e na engenharia. Nosso foco é acolher quem
+                  está em situação de vulnerabilidade, dando suporte e oportunidades
+                  pra que elas ocupem seus espaços no mercado de trabalho.
                 </p>
               </div>
 
             </div>
           </div>
 
-          {/* OSCs */}
+          {/* cards das OSCs parceiras do programa */}
           <div className="qs-osc-section">
             <OscCard
               name="Corali"
               description="A Corali é uma OSC dedicada a transformar a realidade de mulheres
                 em situação de vulnerabilidade, promovendo sua inclusão no ecossistema
                 de tecnologia e inovação."
+              imgSrc={coraliImg}
             />
+            {/* reverse inverte a direção do layout do card */}
             <OscCard
               name="Engenheiros Sem Fronteiras"
               description="A Engenheiros Sem Fronteiras (Núcleo Florianópolis) é uma OSC que
                 utiliza o conhecimento técnico da engenharia para promover transformações
                 sociais e ambientais."
+              imgSrc={engenheirosImg}
               reverse
             />
           </div>
 
-          {/* Missão / Visão / Valores */}
+          {/* cards de missão, visão e valores do projeto */}
           <div className="row g-4 mb-5">
             <div className="col-md-4">
               <div className="missao-card">
@@ -73,8 +83,8 @@ export default function QuemSomos() {
               <div className="missao-card">
                 <i className="bi bi-eye missao-icon" />
                 <h5>Visão</h5>
-                <p>Um futuro onde a tecnologia é construída por todas — com diversidade,
-                  inclusão e representatividade em todos os níveis.</p>
+                <p>Um futuro onde a tecnologia é construída por todas, com mais
+                  diversidade e representatividade.</p>
               </div>
             </div>
             <div className="col-md-4">
@@ -90,6 +100,7 @@ export default function QuemSomos() {
         </div>
       </section>
 
+      {/* grid com logos dos apoiadores e parceiros */}
       <PartnersGrid />
 
       <Footer />

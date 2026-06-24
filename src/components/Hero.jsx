@@ -1,4 +1,8 @@
+// Seção hero da página inicial
+// Mostra o título principal, descrição do programa e os botões de ação
+
 import { Link } from 'react-router-dom'
+import grupoMinatech from '../assets/grupo-minatech.jpg'
 
 export default function Hero() {
   return (
@@ -6,7 +10,7 @@ export default function Hero() {
       <div className="container">
         <div className="row align-items-center g-5">
 
-          {/* Texto */}
+          {/* lado esquerdo — texto com título, descrição e botões */}
           <div className="col-lg-6">
             <p className="hero-label">Jornada Minatech · Florianópolis</p>
             <h1 className="hero-title">
@@ -18,18 +22,20 @@ export default function Hero() {
               públicas a explorar engenharia e tecnologia, porque o futuro
               também é delas!
             </p>
+
+            {/* botões de call to action */}
             <div className="d-flex flex-wrap gap-3">
               <Link to="/inscricao" className="btn btn-pink">Participar</Link>
               <Link to="/doacao"    className="btn btn-outline-pink">Apoie o projeto</Link>
             </div>
           </div>
 
-          {/* Imagem */}
+          {/* lado direito — imagem ilustrativa */}
           <div className="col-lg-6">
             <div className="hero-img-placeholder">
               <img
-                src="https://picsum.photos/seed/minatech/600/400"
-                alt="Meninas em atividade de tecnologia"
+                src={grupoMinatech}
+                alt="Grupo MinaTech"
               />
             </div>
           </div>

@@ -1,15 +1,29 @@
+// Formulário de doação da página Doação
+// Coleta nome e email do doador, salva no Supabase e mostra o PIX pra pagamento
+
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
 
 export default function DonationForm() {
-  const [form, setForm]         = useState({ nome: '', email: '' })
-  const [copied, setCopied]     = useState(false)
-  const [done, setDone]         = useState(false)
-  const [loading, setLoading]   = useState(false)
-  const [erro, setErro]         = useState(null)
+  // dados que o usuário digita no formulário
+  const [form, setForm]       = useState({ nome: '', email: '' })
 
+  // controla se a chave PIX foi copiada (pra mudar o texto do botão)
+  const [copied, setCopied]   = useState(false)
+
+  // vira true depois que o formulário é enviado com sucesso
+  const [done, setDone]       = useState(false)
+
+  // controla o estado de carregamento enquanto salva no banco
+  const [loading, setLoading] = useState(false)
+
+  // guarda mensagem de erro caso o envio falhe
+  const [erro, setErro]       = useState(null)
+
+  // atualiza o campo certo no objeto form quando o usuário digita
   const change = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
+  // envia os dados do doador pro Supabase quando o formulário é submetido
   const submit = async (e) => {
     e.preventDefault()
     setLoading(true)
@@ -25,6 +39,7 @@ export default function DonationForm() {
     setDone(true)
   }
 
+  // copia a chave PIX pro clipboard e muda o texto do botão por 2.5 segundos
   const copyPix = () => {
     navigator.clipboard.writeText('minatech.floripa@gmail.com')
       .then(() => {
@@ -33,7 +48,7 @@ export default function DonationForm() {
       })
   }
 
-  /* Tela de agradecimento */
+  /* tela de agradecimento que aparece depois que o formulário é enviado */
   if (done) return (
     <div className="donation-form-wrap text-center py-5">
       <i className="bi bi-heart-fill" style={{ fontSize: 64, color: 'var(--primary)' }} />
@@ -46,7 +61,7 @@ export default function DonationForm() {
     <div className="donation-form-wrap">
       <form onSubmit={submit}>
 
-        {/* Dados pessoais */}
+        {/* campos de nome e email do doador */}
         <p className="field-section-label">Dados pessoais</p>
 
         <div className="mb-3">
@@ -67,7 +82,7 @@ export default function DonationForm() {
             value={form.email} onChange={change} />
         </div>
 
-        {/* PIX */}
+        {/* área do PIX com QR code e botão de copiar a chave */}
         <p className="field-section-label">PIX</p>
 
         <div className="pix-block">
@@ -75,13 +90,17 @@ export default function DonationForm() {
             <span>QR Code PIX</span>
           </div>
 
+          {/* botão muda de texto quando a chave é copiada */}
           <button type="button" className="btn-copy-link" onClick={copyPix}>
             <i className={`bi ${copied ? 'bi-check-lg' : 'bi-link-45deg'} me-1`} />
             {copied ? 'Copiado!' : 'Copiar link'}
           </button>
         </div>
 
+        {/* mostra mensagem de erro se der problema ao salvar */}
         {erro && <p className="text-danger mt-2 mb-0" style={{ fontSize: 14 }}>{erro}</p>}
+
+        {/* botão de envio — desabilitado e com spinner enquanto carrega */}
         <button type="submit" className="btn btn-pink w-100 mt-3 py-3" disabled={loading}>
           {loading
             ? <><span className="spinner-border spinner-border-sm me-2" />Enviando...</>
