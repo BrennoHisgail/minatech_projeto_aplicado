@@ -1,14 +1,13 @@
-// Formulário de doação da página Doação
+// Formulário da página Doação
 // Coleta nome e email do doador, salva no Supabase e mostra o PIX pra pagamento
 
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
 
 export default function DonationForm() {
-  // dados que o usuário digita no formulário
   const [form, setForm]       = useState({ nome: '', email: '' })
 
-  // controla se a chave PIX foi copiada (pra mudar o texto do botão)
+  // controla se a chave PIX foi copiada
   const [copied, setCopied]   = useState(false)
 
   // vira true depois que o formulário é enviado com sucesso
