@@ -16,7 +16,7 @@ export default function Faq() {
 
           <FaqAccordion />
 
-          {/* CTA ao final */}
+          {/* Seção de ação no final */}
           <div className="text-center mt-5">
             <p className="text-muted mb-3">Ainda tem dúvidas? Entre em contato!</p>
             <Link to="/inscricao" className="btn btn-pink me-2">Inscreva-se</Link>
