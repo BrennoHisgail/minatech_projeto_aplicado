@@ -503,6 +503,37 @@ img { max-width: 100%; display: block; }
   margin-bottom: 24px;
 }
 
+.tipo-select { padding: 8px 0 16px; }
+
+.tipo-card {
+  width: 100%; display: flex; flex-direction: column; align-items: center;
+  gap: 10px; padding: 32px 20px; border-radius: 16px;
+  border: 2px solid var(--border); background: #fff;
+  cursor: pointer; transition: border-color .2s, box-shadow .2s;
+  text-align: center;
+}
+.tipo-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 20px rgba(255,77,109,.15);
+}
+.tipo-card-icon {
+  font-size: 36px; color: var(--primary);
+}
+.tipo-card-title {
+  font-size: 18px; font-weight: 700; color: var(--footer-bg);
+}
+.tipo-card-desc {
+  font-size: 13px; color: var(--text-muted); line-height: 1.4;
+}
+
+.btn-voltar-tipo {
+  background: none; border: none; padding: 0;
+  font-size: 13px; color: var(--text-muted);
+  cursor: pointer; display: flex; align-items: center;
+  transition: color .2s;
+}
+.btn-voltar-tipo:hover { color: var(--primary); }
+
 .form-control:focus,
 .form-select:focus {
   border-color: var(--primary);
