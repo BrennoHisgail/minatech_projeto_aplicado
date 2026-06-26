@@ -1,19 +1,16 @@
 // Página de programação do MinaTech
-// Mostra os próximos eventos, a agenda do dia, eventos passados e depoimentos
+// Mostra os próximos eventos, a agenda do dia e eventos passados
 
 import { useState } from 'react'
 import Navbar          from '../components/Navbar'
 import EventCard        from '../components/EventCard'
 import ScheduleBox      from '../components/ScheduleBox'
 import PastEventCard    from '../components/PastEventCard'
-import TestimonialCard  from '../components/TestimonialCard'
 import Footer           from '../components/Footer'
 
-// imagens dos eventos passados e depoimentos
+// imagens dos eventos passados
 import pastEvent1 from '../assets/ImagemTurma1.png'
 import pastEvent2 from '../assets/ImagemTurma5.png'
-import vitoriaImg  from '../assets/ImagemMulherCodigo.png'
-import mariaImg    from '../assets/ImagemTurma.png'
 import pastEvent3 from '../assets/ImagemTurma2.png'
 import pastEvent4 from '../assets/ImagemTurmaColaboradores.png'
 import pastEvent5 from '../assets/ImagemTurma4.png'
@@ -74,20 +71,6 @@ const PAST = [
     img:   pastEvent7,
     title: 'Talk — Trajetórias Profissionais',
     text:  'Talk sobre trajetórias profissionais, com participantes atentas às experiências compartilhadas por profissionais da área de tecnologia e engenharia.',
-  },
-]
-
-// depoimentos de ex-participantes do programa
-const TESTIMONIALS = [
-  {
-    img: vitoriaImg,
-    name: 'Vitória da Rosa',
-    text: 'Minha jornada no Minatech, em 2022 e 2023, foi uma grande fonte de inspiração e crescimento. O programa me ajudou a descobrir caminhos na Engenharia e Tecnologia, mostrando que elas têm capacidade e que essas profissões não são só para meninas.',
-  },
-  {
-    img: mariaImg,
-    name: 'Maria Eduarde',
-    text: 'Participar do projeto entre 2020 e 2022 transformou minha visão de futuro e fortaleceu minha confiança na programação. Hoje, cursando Ciência da Computação, reconheço o quanto essa experiência contribuiu para minha base acadêmica e profissional.',
   },
 ]
 
