@@ -4,9 +4,8 @@
 import Navbar        from '../components/Navbar'
 import Hero          from '../components/Hero'
 import TickerBanner  from '../components/TickerBanner'
-import StatsBanner   from '../components/StatsBanner'
-import AcolheSection from '../components/AcolheSection'
-import Footer        from '../components/Footer'
+import AcolheSection      from '../components/AcolheSection'
+import Footer             from '../components/Footer'
 
 export default function Home() {
   return (
@@ -14,7 +13,7 @@ export default function Home() {
       {/* navbar fixa no topo */}
       <Navbar />
 
-      {/* seção principal com título e botões */}
+      {/* seção principal com título, botões e moldura de stats */}
       <Hero />
 
       {/* seção expansível mostrando os grupos que o programa acolhe */}
@@ -22,9 +21,6 @@ export default function Home() {
 
       {/* faixa decorativa de palavras em loop */}
       <TickerBanner />
-
-      {/* números do programa com animação de contagem */}
-      <StatsBanner />
 
       <Footer />
     </>

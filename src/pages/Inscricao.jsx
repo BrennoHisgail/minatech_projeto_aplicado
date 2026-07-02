@@ -1,6 +1,7 @@
-import Navbar        from '../components/Navbar'
-import MultiStepForm from '../components/MultiStepForm'
-import Footer        from '../components/Footer'
+import Navbar               from '../components/Navbar'
+import MultiStepForm        from '../components/MultiStepForm'
+import TestimonialsSection  from '../components/TestimonialsSection'
+import Footer               from '../components/Footer'
 
 export default function Inscricao() {
   return (
@@ -23,6 +24,8 @@ export default function Inscricao() {
           <MultiStepForm />
         </div>
       </div>
+
+      <TestimonialsSection />
 
       <Footer />
     </>

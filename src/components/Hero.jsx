@@ -4,6 +4,12 @@
 import { Link } from 'react-router-dom'
 import grupoMinatech from '../assets/grupo-minatech.jpg'
 
+const STATS = [
+  { num: '150+', label: 'meninas impactadas' },
+  { num: '100%', label: 'gratuito'           },
+  { num: '7',    label: 'encontros por edição'},
+]
+
 export default function Hero() {
   return (
     <section className="hero-section" id="inicio">
@@ -30,13 +36,25 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* lado direito — imagem ilustrativa */}
+          {/* lado direito — moldura vinho com foto e números */}
           <div className="col-lg-6">
-            <div className="hero-img-placeholder">
-              <img
-                src={grupoMinatech}
-                alt="Grupo MinaTech"
-              />
+            <div className="hero-frame">
+
+              {/* foto do grupo dentro da moldura */}
+              <div className="hero-frame-img">
+                <img src={grupoMinatech} alt="Grupo MinaTech" />
+              </div>
+
+              {/* números de impacto na extensão inferior da moldura */}
+              <div className="hero-frame-stats">
+                {STATS.map((s, i) => (
+                  <div className="hero-frame-stat" key={i}>
+                    <span className="hero-frame-num">{s.num}</span>
+                    <span className="hero-frame-label">{s.label}</span>
+                  </div>
+                ))}
+              </div>
+
             </div>
           </div>
 
