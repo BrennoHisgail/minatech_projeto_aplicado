@@ -355,7 +355,7 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 .acolhe-section {
   padding: 72px 0;
-  background: var(--primary-light);
+  background: var(--white);
 }
 
 .acolhe-trigger {

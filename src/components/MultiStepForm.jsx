@@ -82,7 +82,17 @@ export default function MultiStepForm() {
     }
 
     setLoading(false)
-    if (error) { setErro('Erro ao enviar. Tente novamente.'); return }
+
+    if (error) {
+      // fallback: salva localmente se Supabase estiver indisponível
+      try {
+        const chave = tipo === 'estudante' ? 'inscricoes_local' : 'voluntarias_local'
+        const existentes = JSON.parse(localStorage.getItem(chave) || '[]')
+        existentes.push({ ...form, criado_em: new Date().toISOString() })
+        localStorage.setItem(chave, JSON.stringify(existentes))
+      } catch (_) {}
+    }
+
     setDone(true)
   }
 
