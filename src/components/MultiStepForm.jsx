@@ -104,6 +104,13 @@ export default function MultiStepForm() {
         {tipo === 'estudante' ? 'Inscrição realizada com sucesso!' : 'Obrigada pelo interesse em ser voluntária!'}
       </h3>
       <p className="text-muted">Em breve entraremos em contato.</p>
+      <button
+        type="button"
+        className="btn-voltar-tipo mt-4"
+        onClick={() => { setTipo(null); setStep(0); setForm({}); setDone(false); setErro(null) }}
+      >
+        <i className="bi bi-arrow-left me-1" />Voltar
+      </button>
     </div>
   )
 
